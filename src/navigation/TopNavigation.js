@@ -19,6 +19,12 @@ function TopNavigation() {
                 <Button color="inherit" component={Link} to="/">
                     Home
                 </Button>
+                <Button color="inherit" component={Link} to="/invoice">
+                    Invoices
+                </Button>
+                <Button color="inherit" component={Link} to="/report">
+                    Report
+                </Button>
                 <Button color="inherit" component={Link} to="/customer">
                     Customers
                 </Button>

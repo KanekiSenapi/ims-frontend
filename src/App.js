@@ -5,6 +5,10 @@ import CustomersPage from './customer/CustomersPage';
 import TopNavigation from "./navigation/TopNavigation";
 import CustomerDetailsPage from "./customer/CustomerDetailsPage";
 import {Container, CssBaseline} from "@mui/material";
+import InvoicesPage from "./invoice/InvoicesPage";
+import InvoicesDetailsPage from "./invoice/InvoicesDetailsPage";
+import InvoicesCreatePage from "./invoice/InvoicesCreatePage";
+import ReportPage from "./report/ReportPage";
 
 function App() {
     return (
@@ -16,6 +20,10 @@ function App() {
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/customer" element={<CustomersPage/>}/>
                     <Route path="/customer/:id" element={<CustomerDetailsPage/>}/>
+                    <Route path="/invoice" element={<InvoicesPage/>}/>
+                    <Route path="/invoice/create" element={<InvoicesCreatePage/>}/>
+                    <Route path="/invoice/:id" element={<InvoicesDetailsPage/>}/>
+                    <Route path="/report" element={<ReportPage/>}/>
                 </Routes>
             </Container>
         </BrowserRouter>

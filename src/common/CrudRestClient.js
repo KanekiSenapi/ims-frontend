@@ -32,6 +32,32 @@ class CrudRestClient {
     const response = await this.client.delete(url);
     return response.data;
   }
+
+  async fileUpload(file, object) {
+    const url = '/file/upload';
+
+    const formData = new FormData();
+    formData.append('file', file);
+    const jsonBlob = new Blob([JSON.stringify(object)], { type: 'application/json' });
+    formData.append('request', jsonBlob, 'request.json');
+
+    const response = await axios.post(url, formData, {
+      baseURL: process.env.REACT_APP_API_BASE_URL,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    return response.data;
+  }
+
+  async report( month,  year) {
+    const resource = '/report/send';
+    const url = `${resource}?month=${month}&year=${year}`;
+
+    const response = await this.client.post(url);
+    return response.data;
+  }
 }
 
 export default CrudRestClient;

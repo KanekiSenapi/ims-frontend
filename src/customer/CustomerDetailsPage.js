@@ -10,7 +10,6 @@ import {
     Dialog,
     DialogActions,
     DialogContent,
-    DialogContentText,
     DialogTitle,
     TextField,
     Typography,
@@ -76,7 +75,7 @@ export default function CustomerDetailsPage() {
 
     const handleRemoveClick = () => {
         restClient
-            .delete(`customer/${id}`)
+            .delete(`customer`, id)
             .then(() => {
                 // Navigate back to the customers list page
             })
