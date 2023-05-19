@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import HomePage from './homepage/HomePage';
+import CustomersPage from './customer/CustomersPage';
+import TopNavigation from "./navigation/TopNavigation";
+import CustomerDetailsPage from "./customer/CustomerDetailsPage";
+import {Container, CssBaseline} from "@mui/material";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <CssBaseline/>
+            <TopNavigation/>
+            <Container disableGutters maxWidth="sm" component="main" sx={{pt: 8, pb: 6}}>
+                <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/customer" element={<CustomersPage/>}/>
+                    <Route path="/customer/:id" element={<CustomerDetailsPage/>}/>
+                </Routes>
+            </Container>
+        </BrowserRouter>
+    );
 }
 
 export default App;
